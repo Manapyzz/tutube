@@ -52,6 +52,8 @@ function getEmbedURLFromInitialURL($initialURL)
             <li>
                 Title: <?php echo $video['title'] ?><br>
                 <iframe width="560" height="315" src="<?php echo getEmbedURLFromInitialURL($video['url'])?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br>
+                <a href="/video.php?id=<?php echo $video['id'] ?>">Voir</a>
             </li>
         <?php endforeach; ?>
     </ul>
