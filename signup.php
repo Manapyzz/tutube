@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Sign Up on Tutube</h1>
     <form action="" method="POST">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="email">
+        <input type="email" name="email" id="email" placeholder="email" required>
         <?php if (isset($errors['email'])): ?>
         <span><?php echo $errors['email']; ?></span>
         <?php endif; ?>
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if (isset($errors['password'])): ?>
             <span><?php echo $errors['password']; ?></span>
         <?php endif; ?>
-        <input type="submit" value="Créer votre compte">
+        <input type="submit" value="Create your account">
     </form>
 </body>
 </html>
