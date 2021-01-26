@@ -39,6 +39,16 @@ function getEmbedURLFromInitialURL($initialURL)
     <title>Tutube</title>
 </head>
 <body>
+    <ul>
+        <li>
+            <?php if (isset($_SESSION['user'])): ?>
+                <a href="/signout.php">Sign out</a>
+            <?php else: ?>
+                <a href="/signin.php">Sign in</a>
+            <?php endif; ?>
+        </li>
+    </ul>
+
     <h1>Welcome on tutube</h1>
 
     <?php if (isset($_SESSION['user'])): ?>
@@ -53,7 +63,10 @@ function getEmbedURLFromInitialURL($initialURL)
                 Title: <?php echo $video['title'] ?><br>
                 <iframe width="560" height="315" src="<?php echo getEmbedURLFromInitialURL($video['url'])?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <br>
-                <a href="/video.php?id=<?php echo $video['id'] ?>">Voir</a>
+                <a href="/video.php?id=<?php echo $video['id'] ?>">Voir</a><br>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <a href="/delete.php?id=<?php echo $video['id'] ?>">Delete video</a>
+                <?php endif; ?>
             </li>
         <?php endforeach; ?>
     </ul>
